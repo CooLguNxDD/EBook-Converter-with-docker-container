@@ -1,5 +1,5 @@
 import julia
-#julia.install()
+julia.install()
 list = [3,6,8,1,4,6,8,2,5,0]
 
 j = julia.Julia()

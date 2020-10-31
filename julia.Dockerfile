@@ -1,6 +1,3 @@
-FROM julia
-
-RUN julia install.jl
+FROM julia:latest
 
 WORKDIR /app
-COPY . .

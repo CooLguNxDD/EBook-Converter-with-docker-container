@@ -1,0 +1,19 @@
+1. Topic idea: what will it actually do?
+
+   -  The project can convert some txt file(or image???) to a readable (epub or other format) ebook.
+   -  I may also do some file fomatting such as .doc to .pdf 
+
+2. The three programming languages you will use, and (briefly) what will be implemented with each:
+
+   -  Python, python will be the base system of the program (such as GUI and I/O)
+   -  Julia, Julia can provide both concurrent programming and functional programming so that the fucntion
+      such as text processing may use Julia for the best preformances.
+   -  C, I am not should about system language yet, maybe I should use it to manage the resources.
+
+3. The two inter-language communication methods you will use.
+
+   - PyJulia, since python is the base program, Pyjulia provide a library to make python accesss to julia
+   - RabbitMQ communicate with a system language and python.
+
+4. Deployment technology: "Virtual Machine + Chef".
+

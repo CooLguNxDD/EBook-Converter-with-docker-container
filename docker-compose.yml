@@ -1,12 +1,12 @@
 version: "3"
 services:
-  rabbitmq:
-    image: rabbitmq:3
-    environment:
-    - RABBITMQ_DEFAULT_USER=guest
-    - RABBITMQ_DEFAULT_PASS=guest
-    ports:
-      - "127.0.0.1:5672:5672"
+  #rabbitmq:
+  #  image: rabbitmq:3
+   # environment:
+    #- RABBITMQ_DEFAULT_USER=guest
+    #- RABBITMQ_DEFAULT_PASS=guest
+    #ports:
+    #  - "127.0.0.1:8080:10960"
 
   #c:
   #  build:
@@ -52,6 +52,12 @@ services:
   #  build:
   #    context: .
   #    dockerfile: php.Dockerfile
+
+  julia:
+    build:
+      context: .
+      dockerfile: julia.Dockerfile
+
 
   python:
     build:

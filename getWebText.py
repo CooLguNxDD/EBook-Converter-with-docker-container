@@ -36,7 +36,6 @@ class webGo():
             print(".")
 
         file = open(self.save_location + "/" + self.title + ".txt", "wb")
-        print(in_text)
         file.write(in_text.encode(encoding="utf-8"))
         file.close()
 

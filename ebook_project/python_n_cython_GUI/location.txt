@@ -1,2 +1,0 @@
-D:/for ssd/sfu things/etextbook/cmpt 383/project/383-project-docker-master-final/ebook_project/test_book_not_true_hero.txt
-D:/for ssd/sfu things/etextbook/cmpt 383/project/383-project-docker-master-final/ebook_project/new_epub/

@@ -31,12 +31,11 @@ class webGo():
             path = os.path.join(path, self.save_location)  # new dir
             os.makedirs(path)
         except FileExistsError:
-            print("in msg: directory already exist")
+            print(".")
         else:
-            print("")
+            print(".")
 
         file = open(self.save_location + "/" + self.title + ".txt", "wb")
-        print(in_text)
         file.write(in_text.encode(encoding="utf-8"))
         file.close()
 

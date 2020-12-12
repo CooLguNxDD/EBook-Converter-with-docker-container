@@ -11,6 +11,7 @@ RUN pip3 install pika==1.1.0
 RUN pip3 install pyzmq==19.0.1
 RUN pip3 install beautifulsoup4
 RUN pip3 install lxml
+RUN pip3 install natsort
 
 WORKDIR /app
 ADD . /app
@@ -28,7 +29,7 @@ RUN python3 setup.py build_ext --inplace
 #CMD python3 hello-world/python/pyjulia_test.py
 #ENTRYPOINT ["python"]
 #CMD ["\main_docker_prefix.py"]
-CMD TIMEOUT 20
+CMD TIMEOUT 3
 CMD python3 setup.py build_ext --inplace
 CMD python3 ebookSend.py
 CMD python3 docker_prefix_content.py

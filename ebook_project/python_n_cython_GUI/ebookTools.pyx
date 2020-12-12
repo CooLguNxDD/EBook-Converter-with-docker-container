@@ -2,6 +2,8 @@
 
 import io
 import os
+
+from natsort import natsorted
 from zipfile import ZipFile
 from datetime import date
 
@@ -64,13 +66,13 @@ class write_To_Html:
         for pages in msg_list:
             for page_num, content in pages.items():
                 #if there is old file, delete it
-                old_HTML_file = open(save_path +"/"+name+ "page" + str(page_num) + ".html", "w")
+                old_HTML_file = open(save_path +"/"+name+ "page" +str(page_num)  + ".html", "w")
                 old_HTML_file.write("")
                 old_HTML_file.close()
 
                 for paragraph in content:
-                    new_HTML_file_binary = open(save_path+"/" +name+ "page" + str(page_num) + ".html", "ab")
-                    new_HTML_file = open(save_path+"/" +name+ "page" + str(page_num) + ".html", "a")
+                    new_HTML_file_binary = open(save_path +"/"+name+ "page"  +str(page_num)+ ".html", "ab")
+                    new_HTML_file = open(save_path +"/"+name+ "page" +str(page_num)+ ".html", "a")
                     #append
                     self.write_to_html(new_HTML_file,new_HTML_file_binary, paragraph)
                     new_HTML_file.close()
@@ -94,6 +96,8 @@ class write_To_Html:
 
     def toHTML_string(self,file, html_string):
         file.write(html_string)
+
+
 
 # https://www.ibm.com/developerworks/xml/tutorials/x-epubtut/index.html
 class createEPUB():
@@ -240,9 +244,29 @@ class createEPUB():
                 paths.append(filepath)  # add epub to path
         return paths
 
+    def toOneHTML(self,title,target_location):
+        html_path = "epub/chapters"
+        html_file_paths = self.getHTMLPaths(html_path)
+
+        newHTMLfile = open(target_location+"/"+title+".html","w", encoding="utf-8")
+        html_file_paths = self.naturalSort(html_file_paths)
+
+        for files in html_file_paths:
+            html = open(files,"r", encoding="utf-8")
+            newHTMLfile.write(html.read())
+            html.close()
+            os.remove(files)
+        newHTMLfile.close()
+    #sort the file name only with numbers
+
+    def naturalSort(self,file_name):
+        return natsorted(file_name,key = lambda y:y.lower())
+
+
     def delete_Old_HTMl(self):
         html_path = "epub/chapters"
         html_file_paths = self.getHTMLPaths(html_path)
+
 
         for files in html_file_paths:
             os.remove(files)

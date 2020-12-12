@@ -1,4 +1,4 @@
-# This Python file uses the following encoding: utf-8
+
 
 from tkinter import *
 import tkinter as tk
@@ -143,7 +143,7 @@ class ProgramGUI:
 
         self.entry_title_label = Label(self.epub_element_frame, text="Title: ", font=("Arial", 12))
         self.entry_title = Entry(self.epub_element_frame, width=30, font=("Arial", 12))
-        self.entry_title.insert(END, "")
+        self.entry_title.insert(END, "default")
         self.entry_title_label.place(x=3, y=40)
         self.entry_title.place(x=73, y=40)
 
@@ -203,19 +203,20 @@ class ProgramGUI:
             rpc = RpcClient()  # rpx server
 
             if self.convertMode == "HTML":  # HTML Mode
+                epub_tools = createEPUB()
                 print("html")
-                n_line = 99999
-                page_limit = 9999  # only one html file will be created
+                n_line = 25
+                page_limit = 5
                 new_book = html_converter.open_txt(book_location, codec="utf-8")
-                total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc, save_path=target_location,
-                                                     name=self.entry_title.get())
+                total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc)
+                epub_tools.toOneHTML(str(self.entry_title.get()),target_location)
                 print("finish")
                 self.start_convert_text.set("finished")
                 new_book.close()
             elif self.convertMode == "EPUB":
                 print("epub")
-                n_line = 200
-                page_limit = 20
+                n_line = 25
+                page_limit = 5
                 new_book = html_converter.open_txt(book_location, codec="utf-8")
                 print("to html")
                 total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc)

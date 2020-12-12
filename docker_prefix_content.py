@@ -111,17 +111,19 @@ class Program_With_Prefix:
         if self.convertMode == "HTML":  # HTML Mode
             print("converting to HTML")
 
-            n_line = 99999
-            page_limit = 9999  # only one html file will be created
+            n_line = 25
+            page_limit = 5
             new_book = html_converter.open_txt(book_location, codec="utf-8")
-            total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc, save_path=target_location,
-                                                 name=self.title)
-            print("finish")
+            total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc)
             new_book.close()
+            epub_tools = createEPUB()
+            epub_tools.toOneHTML(self.title,target_location)
+            print("finish")
+
         elif self.convertMode == "EPUB":
             self.setEPUBInfo()
-            n_line = 200
-            page_limit = 20
+            n_line = 25
+            page_limit = 5
             new_book = html_converter.open_txt(book_location, codec="utf-8")
             total_page = html_converter.msg_send(new_book, n_line, page_limit, rpc)
             new_book.close()

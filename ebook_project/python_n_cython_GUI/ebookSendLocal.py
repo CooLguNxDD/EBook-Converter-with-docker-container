@@ -30,7 +30,7 @@ class RpcClient(object):
         
         self.channel.basic_publish(
             exchange='',
-            routing_key='local_queue',
+            routing_key='rpc_queue',
             properties=pika.BasicProperties(reply_to=self.callback_queue, correlation_id=self.corr_id),
             body=body)
         while self.response is None:

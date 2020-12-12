@@ -8,9 +8,7 @@ RUN apt-get update \
 WORKDIR /app
 COPY . .
 
-RUN gcc -Wall -o hello hello-world/hello.c
 #RUN clang -Wall -o hello hello-world/hello.c
 #RUN g++ -Wall -o hello hello-world/hello.cpp
 #RUN clang++ -Wall -o hello hello-world/hello.cpp
 
-CMD ./hello

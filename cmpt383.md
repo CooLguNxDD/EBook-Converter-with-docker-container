@@ -1,6 +1,5 @@
-This is the template for CMPT 383 projects using Docker, providing some basics to get started with various languages in a a consistent environment.
 
-
+Project Summary
 ## Starting the Containers
 
 This repository is for code that deploys in a series of containers, managed by [Docker Compose](https://docs.docker.com/compose/). You should be able to change into the repository directory, uncomment whatever pieces you want in `docker-compose.yml`, and type:

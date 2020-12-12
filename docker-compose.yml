@@ -1,17 +1,39 @@
-version: "3"
+version: "3.6"
 services:
-  #rabbitmq:
-  #  image: rabbitmq:3
-   # environment:
-    #- RABBITMQ_DEFAULT_USER=guest
-    #- RABBITMQ_DEFAULT_PASS=guest
-    #ports:
-    #  - "127.0.0.1:8080:10960"
+  rabbitmq:
+    image: rabbitmq:3
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "127.0.0.1:5672:5672"
+  go:
+    build:
+      context: .
+      dockerfile: go.Dockerfile
+    depends_on:
+      - rabbitmq
 
-  #c:
-  #  build:
-  #    context: .
-  #    dockerfile: c.Dockerfile
+
+  python:
+    build:
+      context: .
+      dockerfile: python.Dockerfile
+    volumes:
+      - ./out:/app/output/
+    depends_on:
+      - rabbitmq
+      - go
+
+  c:
+    build:
+      context: .
+      dockerfile: c.Dockerfile
+
+
+
+
 
   #cs:
   #  build:
@@ -23,10 +45,14 @@ services:
   #    context: .
   #    dockerfile: erlang.Dockerfile
 
-  #go:
-  #  build:
-  #    context: .
-  #    dockerfile: go.Dockerfile
+
+    #depends_on:
+    #  - rabbitmq
+    #environment:
+    #  - WAIT_HOSTS=rabbitmq
+    ##  - WAIT_HOSTS_TIMEOUT=500
+    #  - WAIT_SLEEP_INTERVAL=60
+     # - WAIT_HOST_CONNECT_TIMEOUT=60
 
   #haskell:
   #  build:
@@ -53,17 +79,6 @@ services:
   #    context: .
   #    dockerfile: php.Dockerfile
 
-  julia:
-    build:
-      context: .
-      dockerfile: julia.Dockerfile
-
-
-  python:
-    build:
-      context: .
-      dockerfile: python.Dockerfile
-
   #ruby:
   #  build:
   #    context: .
@@ -78,3 +93,4 @@ services:
   #  build:
   #    context: .
   #    dockerfile: scala.Dockerfile
+

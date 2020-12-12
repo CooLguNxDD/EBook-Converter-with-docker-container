@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python facet">
+      <configuration sdkName="Python 3.8" />
+    </facet>
+  </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.idea" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/docker" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/Cpython" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/go" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/temp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hello-world" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mq-demos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mq-demos/mq-demos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/not_using" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/Cpython/build" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/Cpython/build/lib.win32-3.8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/Cpython/build/temp.win32-3.8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++/Project_ebook" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++/Project_ebook/.vs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++/Project_ebook/Debug" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++/Project_ebook/Project1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/c++/Project_ebook/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ebook_project/python_n_cython_GUI" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Python 3.8 interpreter library" level="application" />
   </component>
 </module>
